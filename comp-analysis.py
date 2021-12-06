@@ -18,7 +18,11 @@ df = df[ \
   (pd.to_numeric(df["yearsofexperience"]) <= 8) \
 ]
 
-print("Num samples: ", df.shape[0])
+print("Num samples:", df.shape[0])
 # All monetary quantities are stored in USD in levels.fyi data.
-print("Median: ", pd.DataFrame.median(pd.to_numeric(df.totalyearlycompensation)), "k USD")
-print("Standard deviation: ", pd.DataFrame.std(pd.to_numeric(df.totalyearlycompensation)), "k USD")
+print("Median:", pd.DataFrame.median(pd.to_numeric(df.totalyearlycompensation)), "k USD")
+print("Standard deviation:", pd.DataFrame.std(pd.to_numeric(df.totalyearlycompensation)), "k USD")
+p90 = pd.to_numeric(df.totalyearlycompensation).quantile(q = 0.9)
+print("90-th percentile:", p90, "k USD")
+kUsdToCad = 1.28
+print("90-th percentile:", p90 * kUsdToCad, "k CAD")

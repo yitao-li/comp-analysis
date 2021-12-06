@@ -30,9 +30,9 @@ cat("Standard deviation: ", sd(as.numeric(salaries_df$totalyearlycompensation)),
 # September, 2021.
 kUsdToCad <- 1.2647903
 
-# 90-th percentile among SWEs in Canada with 7-8 YOE => ~260k CAD / yr
+# 90-th percentile among SWEs in Canada with 7-8 YOE => ~290k CAD / yr
 cat(
   "The percentile: ",
-  ecdf(kUsdToCad * as.numeric(salaries_df$totalyearlycompensation))(260 * 1.1 + 6.5) * 100,
+  ecdf(kUsdToCad * as.numeric(salaries_df$totalyearlycompensation))(290) * 100,
   "%\n"
 )
