@@ -7,6 +7,8 @@ import requests
 resp = requests.get("https://www.levels.fyi/js/salaryData.json")
 print("Response code: ", resp.status_code)
 if resp.status_code != HTTPStatus.OK:
+    # AFAIK this endpoint only responds with HTTP 200 and not any other 2xx
+    # status for successful queries
     raise RuntimeError("Failed to fetch data!")
 
 data = resp.json()
